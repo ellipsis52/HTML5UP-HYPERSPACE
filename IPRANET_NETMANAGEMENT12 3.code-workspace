@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "html5up-hyperspace",
+			"path": "html5up-hyperspace"
+		},
+		{
+			"name": "html5up-hyperspace-xero",
+			"path": "../html5up-hyperspace-xero"
+		}
+	],
+	"settings": {
+		"DockerRun.DisableDockerrc": true,
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			".mule": true,
+			"**/node_modules": false
+		},
+		"DockerRun.DisableAutoGenerateConfig": true,
+		"git.ignoreLimitWarning": true
+	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "chrome",
+				"name": "https://mylogin.netmanagement.online/login",
+				"request": "launch",
+				"url": "https://mylogin.netmanagement.online/login"
+			}
+		]
+	}
+}
