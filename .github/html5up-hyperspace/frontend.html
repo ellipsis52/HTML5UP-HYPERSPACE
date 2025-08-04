@@ -1,0 +1,34 @@
+<!-- frontend.html -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    const stripe = Stripe('your-public-key');  // Remplacez par votre clé publique Stripe
+    const clientSecret = 'your-client-secret-from-backend';
+
+    // Récupérer le formulaire et effectuer le paiement
+    const paymentForm = document.getElementById('payment-form');
+    paymentForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const {token, error} = await stripe.createToken('card', cardElement);  // cardElement doit être défini par Stripe Elements
+
+        if (error) {
+            console.error(error);
+        } else {
+            const response = await fetch('/confirm-payment', {
+                method: 'POST',
+                body: JSON.stringify({
+                    paymentIntentId: clientSecret,
+                    token: token.id
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const result = await response.json();
+            if (result.success) {
+                console.log('Payment confirmed!');
+            }
+        }
+    });
+</script>

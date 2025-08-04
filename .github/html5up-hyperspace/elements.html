@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements - Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Hyperspace</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="generic.html">Generic</a></li>
+						<li><a href="elements.html"  class="active">Elements</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Elements</h1>
+
+							<!-- Text -->
+								<section>
+									<h2>Text</h2>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<p>The back-end of Xero Partner 2.0primarily handles:
+API for managing users, transactions, and payments.
+Database for storing transaction information, users, etc.
+Security via JWT, Okta, and other mechanisms to ensure secure communication.
+Logging for monitoring and error management.
+Integration with third-party services like Xero, GoCardless, and OKX for payment and accounting management.</p>
+									<hr />
+									<h2></h2>
+									<h3></h3>
+									<h4>
+
+</h4>
+									<hr />
+									<h3>Xero Partner 2.0</h3>
+									<blockquote>Integrating React Router with the Back-End of Xero Partner 2.0
+
+The Xero partner 2.0platform is built on a modern architecture combining a React front-end (using React Router) with a robust back-end integrating third-party services such as Xero, GoCardless, OKX, as well as custom APIs. For a seamless integration—especially in production—React Router must be properly connected to the back-end, particularly when managing routes.
+1. React Router and the Back-End: A Critical Cohabitation
+
+React Router is responsible for handling client-side routes in a SPA (Single Page Application). To work properly alongside a back-end like that of xero partner 2.0, the following conditions must be met:
+The web server (e.g., Nginx or Apache) must be configured to redirect all non-API requests to index.html.
+React routes (such as /dashboard, /transactions/:id) must be served from the front-end even after a page refresh.
+2. Back-End and API Routes
+
+The back-end plays a key role in separating responsibilities:
+All front-end routes are handled by React Router.
+API routes such as /api/transactions, /api/users, etc. are managed server-side via a REST or GraphQL API.
+Therefore, the server (Node.js, Express, or another stack) should be able to:
+Serve the React front-end
+Redirect unknown (non-API) routes to index.html so that React Router can take over</blockquote>
+									<h3>Example configuration with Express.js:</h3>
+									<pre><code>i = 0;
+
+js
+app.use('/api', apiRoutes); // API backend
+// Catch-all for React Router front-end
+app.get(‘*’, (req, res) => {
+res.sendFile(path.join(__dirname, ‘client/build’, ‘index.html’));
+});
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+							<!-- Lists -->
+								<section>
+									<h2>Lists</h2>
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<h3>REST or GraphQL API:</h3>
+											<ul>
+												<li>Xero: invoicing and accounting</li>
+												<li>Okta: JWT-based authentication and authorization</li>
+												<li>OKX: cryptocurrency payment handling</li>
+											</ul>
+											<h3>Authentication & Security:</h3>
+											<ul class="alt">
+												<li>The API validates each request using JWT tokens. React Router can redirect users to /login or /unauthorizeddepending on authentication status, but the back-end is responsible for securing access to protected API routes.
+</li>
+												<li> Deployment: Nginx or Apache + React Router</li>
+												<li>Example Nginx configuration</li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-medium">
+											<h3>
+											<h3>Icons</h3>
+											<ul class="icons">
+												<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+											</ul>
+										</div>
+									</div>
+									<h2>Actions</h2>
+									<div class="row">
+										<div class="col-6 col-12-medium">
+											<ul class="actions">
+												<li><a href="#" class="button primary">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+											</ul>
+											<ul class="actions small">
+												<li><a href="#" class="button primary small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary">Default</a></li>
+												<li><a href="#" class="button">Default</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary small">Small</a></li>
+												<li><a href="#" class="button small">Small</a></li>
+											</ul>
+										</div>
+										<div class="col-6 col-12-medium">
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary fit">Default</a></li>
+												<li><a href="#" class="button fit">Default</a></li>
+											</ul>
+											<ul class="actions stacked">
+												<li><a href="#" class="button primary small fit">Small</a></li>
+												<li><a href="#" class="button small fit">Small</a></li>
+											</ul>
+										</div>
+									</div>
+								</section>
+
+							<!-- Table -->
+								<section>
+									<h2>Table</h2>
+									<h3>Default</h3>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Proper server configuration to support client-side navigation</td>
+													<td>290.99€</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Clear separation between API routes and front-end routes</td>
+													<td>199.99€</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td>Security handled through Okta and JWT, with React Router managing client-side redirection</td>
+													<td>290.99€</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Synchronization of transactions and users via modern APIs, while the front-end handles the interface and views using React Router</td>
+													<td>190.99€</td>
+												</tr>
+												<tr>
+												
+
+							<!-- Buttons -->
+								<section>
+									<h3>Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button large">Large</a></li>
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions fit">
+										<li><a href="#" class="button primary fit">Fit</a></li>
+										<li><a href="#" class="button fit">Fit</a></li>
+										<li><a href="#" class="button fit">Fit</a></li>
+									</ul>
+									<ul class="actions fit small">
+										<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+										<li><a href="#" class="button fit small">Fit + Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-upload">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-save">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+							<!-- Form -->
+								<section>
+									<h2>Form</h2>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall">
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+											</div>
+											<div class="col-12">
+												<select name="demo-category" id="demo-category">
+													<option value="">- Category -</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-normal" name="demo-priority">
+												<label for="demo-priority-normal">Normal</label>
+											</div>
+											<div class="col-4 col-12-small">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="col-6 col-12-small">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="col-12">
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" value="Send Message" class="primary" /></li>
+													<li><input type="reset" value="Reset" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+
+							<!-- Image -->
+								<section>
+									<h2>Image</h2>
+									<h3>Fit</h3>
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-12"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+										</div>
+									</div>
+									<h3>Left &amp; Right</h3>
+									<p><img src="images/pic05.jpg" alt="" /></span>I’m here to assist you with building the API for netmanagement.online and setting up the domain my.netmanagement.online, as well as integrating the Stripe payment system and OKTA reseller platform on netmanagement.online.
+Here are the steps to follow:
+Building the API for netmanagement.online:
+Define the endpoints and functionalities needed for the API.
+Write the code for the API using a programming language or framework of your choice.
+Test the API thoroughly to ensure it functions as intended.
+Setting up the domain my.netmanagement.online:
+Purchase the domain name to forward my.netmanagement.online from a domain registrar.
+Configure the DNS settings to point to the appropriate server or hosting provider where netmanagement.online is hosted.
+Set up any necessary subdomain configurations on your hosting platform.
+Integrating the Stripe payment system:
+Create a Stripe account if you don’t already have one.
+Implement the necessary Stripe API calls in your application to handle payments.
+Test the payment flow to ensure transactions are processed correctly.
+Setting up the XERO PARTNER subscription on netmanagement.online:
+Visit the netmanagement.online website and navigate to the XERO PARTNER subscription page.
+Follow the subscription process and provide the necessary information to become a XERO PARTNER.
+Once subscribed, follow any onboarding instructions provided by XERO to set up your reseller platform.
+									<p><span class="image right"><img src="images/pic06.jpg" alt="" /></span>Step-by-Step Guide to Set Up Xero Partner 2.0
+
+Introduction:
+Xero Partner 2.0 is a tool that allows you to integrate Xero features into an application via a secure API. This guide will walk you through all the necessary steps to connect your application to Xero and correctly set up authentication tokens, API keys, and error handling.
+1. Create a Xero Account and Set Up the API
+
+Before you can use Xero Partner 2.0, you must have a Xero Partner account and create an app in the Xero Developer Console.
+Steps:
+Create an account on Xero Developer.
+Once your account is validated, log in and go to the My Apps section.
+Click Create a new app to generate a new API application.
+Fill in the required information (application name, redirect URL, etc.).
+Once the app is created, you will receive a Client ID and Client Secret. Make sure to save these securely as you’ll need them to integrate with your application.
+2. Integrate the Client ID and Client Secret
+
+Your application will need the Client ID and Client Secret provided by Xero to interact with their API.
+Steps:
+Add the following variables to your project’s .env file:
+REACT_APP_XERO_CLIENT_ID=YOUR_CLIENT_ID
+REACT_APP_XERO_CLIENT_SECRET=YOUR_CLIENT_SECRET
+Ensure these keys are securely added and protected to prevent any data leakage.
+3. Obtain an Access Token (OAuth2)
+
+Once your app is configured with the Client ID and Client Secret, you need to generate an access token using the OAuth2 authentication process. This token allows you to securely call the Xero API.
+Steps:
+Redirect the user to the Xero authentication URL with the required parameters (Client ID, redirect URL, scope, etc.).
+Example URL:
+sql
+https://login.xero.com/identity/connect/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&scope=offline_access
+After logging in, Xero will redirect to the specified URL with an authorization code.
+Use this code to obtain an access token and a refresh token by sending a POST request to the Xero API.
+Store these tokens securely for use in future API calls.
+4. Make Secure API Calls
+
+With the access token in hand, you can now make secure API calls to Xero. For example, you can retrieve contact or transaction data.
+API Request Example:
+javascript
+fetch('https://api.xero.com/api.xro/2.0/Invoices', {
+method: 'GET',
+headers: {
+'Authorization': `Bearer ${ACCESS_TOKEN}`,
+'Accept': 'application/json',
+}
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+5. Handle Token Refresh
+
+Tokens have a limited lifespan. When the access token expires, you must use the refresh token to obtain a new access token.
+Steps:
+Send a POST request to the token refresh endpoint:
+bash
+POST https://identity.xero.com/connect/tokenGET
+Provide the refresh token and other necessary information to get a new access token.
+Make sure the access token is updated in your application every time it’s refreshed.
+6. Handle Errors
+
+Xero API errors must be handled properly to ensure your application remains functional.
+Common Errors:
+401 Unauthorized: Your access token is invalid or expired.
+Solution: Check your token or refresh it using the refresh token.
+400 Bad Request: The parameters of your request are incorrect.
+Solution: Verify the parameters sent in the API request.
+429 Too Many Requests: You have reached the API request limit per minute.
+Solution: Implement rate-limiting to comply with API restrictions.
+7. Secure Your Data
+
+Ensure all sensitive information—API keys, tokens, and secrets—is stored securely, preferably in a .env file or through a secrets management solution such as AWS Secrets Manager or Azure Key Vault.
+8. Testing and Validation
+
+Before going live, perform thorough testing to ensure your integration with Xero is working correctly:
+Verify that you can retrieve data through the API.
+Ensure tokens are properly handled (expiration and refresh).
+Run load tests to make sure your app can handle multiple simultaneous API calls without issues.
+Conclusion
+
+By following this guide, you should be able to successfully integrate Xero Partner 2.0 into your application, ensure secure API connectivity, and manage authentication tokens with confidence.
+Feel free to consult the official Xero documentation for more technical details, or reach out to me if you have specific implementation questions.</p>
+								</section>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; copyright 2025 netmanagement.online. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body><script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe("pk_test_..."); // Remplace par ta clé publique STRIPE_PUBLISHABLE_KEY
+
+  document.getElementById("checkout-button").addEventListener("click", async () => {
+    const response = await fetch("/api/stripe/checkout", {
+      method: "POST",
+    });
+    const session = await response.json();
+    stripe.redirectToCheckout({ sessionId: session.id });
+  });
+</script>
+
+</html>
