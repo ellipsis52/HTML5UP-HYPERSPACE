@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vanilla Web App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #8080ff;
+      margin: 0;
+      padding: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+    }
+    h2, h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover {
+      background-color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .response {
+      background: #f0f0f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .error {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
+    .loading {
+      color: #007bff;
+      font-size: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+
+    <!-- Outgoing Payment (Xero) -->
+    <div class="card">
+      <h2>Outgoing Payment (Xero)</h2>
+      <label>Xero Contact ID</label>
+      <input id="xeroContactId" type="text" placeholder="12345678-aaaa-bbbb-cccc-ddddeeeeffff"/>
+      <label>IBAN</label>
+      <input id="xeroIban" type="text" placeholder="Your IBAN"/>
+      <label>Amount</label>
+      <input id="xeroAmount" type="text" placeholder="100.00"/>
+      <label>Description</label>
+      <input id="xeroDescription" type="text" placeholder="Supplier payment"/>
+      <button onclick="makeXeroPayment()">Make Xero Payment</button>
+      <p id="xeroError" class="error">Error message</p>
+      <p id="xeroLoading" class="loading">Processing...</p>
+    </div>
+
+    <!-- Crypto Payment to OKX -->
+    <div class="card">
+      <h2>Crypto Payment to OKX</h2>
+      <label>Cryptocurrency</label>
+      <select id="cryptoCurrency">
+        <option>Bitcoin (BTC)</option>
+        <option>Ethereum (ETH)</option>
+        <option>Tether (USDT)</option>
+      </select>
+      <label>Amount</label>
+      <input id="cryptoAmount" type="text" placeholder="100.00"/>
+      <label>IBAN</label>
+      <input id="cryptoIban" type="text" placeholder="Your IBAN"/>
+      <button onclick="sendCryptoPayment()">Send Crypto Payment</button>
+      <p id="cryptoError" class="error">Error message</p>
+      <p id="cryptoLoading" class="loading">Processing...</p>
+    </div>
+
+    <!-- GPT-4 Interaction -->
+    <div class="card">
+      <h2>Interact with GPT-4</h2>
+      <label>Ask GPT-5 a question</label>
+      <input id="gptQuestion" type="text" placeholder="Your question here"/>
+      <button onclick="askGpt()">Ask Question</button>
+      <p id="gptError" class="error">Error message</p>
+      <div id="gptResponse" class="response">
+        <h3>GPT-4 Response:</h3>
+        <p>Answer will appear here.</p>
+      </div>
+      <p id="gptLoading" class="loading">Processing...</p>
+    </div>
+
+    <!-- Payment History -->
+    <div class="card" style="grid-column: span 3;">
+      <h3>Payment History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Crypto / Xero</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Xero</td>
+            <td>Xero Payment</td>
+            <td>100.00</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>OKX</td>
+            <td>ETH</td>
+            <td>250.00</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+    // Function to make the API request to Xero
+    async function makeXeroPayment() {
+      const xeroContactId = document.getElementById('xeroContactId').value;
+      const xeroIban = document.getElementById('xeroIban').value;
+      const xeroAmount = document.getElementById('xeroAmount').value;
+      const xeroDescription = document.getElementById('xeroDescription').value;
+
+      document.getElementById('xeroLoading').style.display = 'block';
+      document.getElementById('xeroError').style.display = 'none';
+
+      // make anetwork call to Xero
+      try {
+        // Call your Xero API here
+        // Example: const response = await axios.post('/xero/payment', { xeroContactId, xeroIban, xeroAmount, xeroDescription });
+        
+        // Make an success response
+        setTimeout(() => {
+          document.getElementById('xeroLoading').style.display = 'none';
+          alert('Xero payment successful!');
+        }, 2000);
+      } catch (error) {
+        document.getElementById('xeroLoading').style.display = 'none';
+        document.getElementById('xeroError').style.display = 'block';
+      }
+    }
+
+    // Function to make the crypto payment to OKX
+    async function sendCryptoPayment() {
+      const cryptoCurrency = document.getElementById('cryptoCurrency').value;
+      const cryptoAmount = document.getElementById('cryptoAmount').value;
+      const cryptoIban = document.getElementById('cryptoIban').value;
+
+      document.getElementById('cryptoLoading').style.display = 'block';
+      document.getElementById('cryptoError').style.display = 'none';
+
+      // make an network call to OKX
+      try {
+        // Call your OKX API here
+        // Example: const response = await axios.post('/okx/payment', { cryptoCurrency, cryptoAmount, cryptoIban });
+
+        // Make an success response
+        setTimeout(() => {
+          document.getElementById('cryptoLoading').style.display = 'none';
+          alert('Crypto payment successful!');
+        }, 2000);
+      } catch (error) {
+        document.getElementById('cryptoLoading').style.display = 'none';
+        document.getElementById('cryptoError').style.display = 'block';
+      }
+    }
+
+    // Function to make the request to  GPT-5 question and answer
+    async function askGpt() {
+      const question = document.getElementById('gptQuestion').value;
+
+      document.getElementById('gptLoading').style.display = 'block';
+      document.getElementById('gptError').style.display = 'none';
+      document.getElementById('gptResponse').style.display = 'none';
+
+      try {
+        // Make an API call to GPT-5
+        // Example: const response = await axios.post('/gpt/ask', { question });
+
+        // answer = response.data success response
+        setTimeout(() => {
+          document.getElementById('gptLoading').style.display = 'none';
+          document.getElementById('gptResponse').style.display = 'block';
+          document.getElementById('gptResponse').innerHTML = `
+            <h3>GPT-5 Response:</h3>
+            <p>Here is the answer to your question: response to your question: ${question}</p>
+          `;
+        }, 2000);
+      } catch (error) {
+        document.getElementById('gptLoading').style.display = 'none';
+        document.getElementById('gptError').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>

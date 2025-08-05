@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>2nd Factor Authentication</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <style type="text/css">
+
+    html, body { padding: 0; margin: 0; }
+
+    .table {
+      display: table;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: {{ pageBackgroundColor | escape | default: '#2b2b33' }};
+    }
+
+    .cell {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .content {
+      padding: 25px 0px 25px 0px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 280px; /* login widget width */
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="table">
+    <div class="cell">
+      <div class="content">
+        <!-- WIDGET -->
+        <div class="js-mfa-container mfa-container" id="container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//cdn.auth0.com/js/mfa-widget/mfa-widget-1.8.min.js"></script>
+
+  <script>
+    (function() {
+      return new Auth0MFAWidget({
+        container: "container",
+
+        theme: {
+          icon: "{{ iconUrl | escape | default: '//cdn.auth0.com/styleguide/1.0.0/img/badge.png' }}",
+          primaryColor: "{{ primaryColor | escape | default: '#ea5323' }}"
+        },
+
+        requesterErrors: [
+          {% for error in errors %}
+            { message: "{{ error.message | escape }}", errorCode: "{{ error.code | escape }}" }
+          {% endfor %}
+        ],
+
+        mfaServerUrl: "{{ mfaServerUrl | escape }}",
+        {% if ticket %}
+        ticket: "{{ ticket | escape }}",
+        {% else %}
+        requestToken: "{{ requestToken | escape }}",
+        {% endif %}
+        postActionURL: "{{ postActionURL }}",
+
+        userData: {
+          userId: "{{ userData.userId | escape }}",
+          email: "{{ userData.email | escape }}",
+          friendlyUserId: "{{ userData.friendlyUserId | escape }}",
+          tenant: "{{ userData.tenant | escape }}",
+          {% if userData.tenantFriendlyName %}
+          tenantFriendlyName: "{{ userData.tenantFriendlyName | escape }}"
+          {% endif %}
+        },
+        globalTrackingId: "{{ globalTrackingId | escape }}",
+        {% if allowRememberBrowser %}allowRememberBrowser: {{ allowRememberBrowser | escape }}, {% endif %}
+        {% if stateCheckingMechanism %}stateCheckingMechanism: "{{ stateCheckingMechanism | escape }}", {% endif %}
+      });
+    })();
+  </script>
+</body>
+</html>
